@@ -27,6 +27,19 @@ int postfix_calc(string expr) {
         else {
             
             switch (expr[i]) {
+
+            // s operator sums up input. For example "1 2 3 s" outputs "6"
+            case 's': {
+                int sum = 0;
+                while (!st.empty()) {
+                    int num = st.top();
+                    sum += num;
+                    st.pop();
+                }
+                st.push(sum);
+                break;
+            }
+
             case '+': {
                 int operand2 = st.top();
                 st.pop();
