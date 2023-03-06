@@ -27,6 +27,19 @@ int postfix_calc(string expr) {
         else {
             
             switch (expr[i]) {
+            // a operator outputs an average of inputted numbers. 
+            case 'a': {
+                int sum = 0;
+                int stSize = st.size();
+                while (!st.empty()) {
+                    int num = st.top();
+                    sum += num;
+                    st.pop();
+                }
+                sum /= stSize;
+                st.push(sum);
+                break;
+            }
 
             // s operator sums up input. For example "1 2 3 s" outputs "6"
             case 's': {
